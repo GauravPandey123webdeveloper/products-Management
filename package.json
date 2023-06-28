@@ -1,0 +1,23 @@
+{
+  "name": "products-management",
+  "version": "1.0.0",
+  "description": "product management is the basic project to illustrate the real time shopping application",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GauravPandey123webdeveloper/products-Management.git"
+  },
+  "keywords": [
+    "product",
+    "management"
+  ],
+  "author": "Gaurav Pandey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GauravPandey123webdeveloper/products-Management/issues"
+  },
+  "homepage": "https://github.com/GauravPandey123webdeveloper/products-Management#readme"
+}
