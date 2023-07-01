@@ -4,7 +4,8 @@
   "description": "product management is the basic project to illustrate the real time shopping application",
   "main": "index.js",
   "scripts": {
-    "test": "node src/index.js"
+    "test": "node src/index.js",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,17 @@
   "bugs": {
     "url": "https://github.com/GauravPandey123webdeveloper/products-Management/issues"
   },
-  "homepage": "https://github.com/GauravPandey123webdeveloper/products-Management#readme"
+  "homepage": "https://github.com/GauravPandey123webdeveloper/products-Management#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1407.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
 }
