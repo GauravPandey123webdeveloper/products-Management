@@ -36,5 +36,28 @@ validMobile = function (mob) {
     const trimmedMobile = mob.replace(/\s/g, ''); // Remove spaces from the mobile number
     return /^[0-9]{10}$/.test(trimmedMobile); // Check if the mobile number consists of exactly 10 digits
 };
+function indianPrice(num){
+    return /^[0-9]{1,3}(?:,?[0-9]{2,3})*(?:,[0-9]{3})*(?:\.[0-9]{1,2})?$/.test(num)
 
-module.exports = { isValidObjectId,isValidData, validEmail, validMobile,validPassword };
+}
+function sizesCheck(sizes) {
+    const validSizes = ["S", "XS", "M", "X", "L", "XXL", "XL"];
+  
+    if (!Array.isArray(sizes)) {
+      return false; // Sizes should be an array
+    }
+  
+    if (sizes.length < 1) {
+      return false; // Sizes array should have at least one element
+    }
+  
+    for (const size of sizes) {
+      if (!validSizes.includes(size)) {
+        return false; // Invalid size found in the array
+      }
+    }
+  
+    return true; // All sizes are valid
+  } 
+
+module.exports = { isValidObjectId,isValidData,indianPrice, validEmail, validMobile,validPassword,sizesCheck };

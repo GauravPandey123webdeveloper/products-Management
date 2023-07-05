@@ -8,7 +8,7 @@ const authentication = async function (req, res, next) {
   try {
     let token = req.headers["authorization"];
     if (!token) {
-      res.status(401).send({ status: false, message: "Please log in first" });
+     return res.status(401).send({ status: false, message: "Please log in first" });
     } else {
       // Extracting the token from the "Bearer" scheme
       token = token.replace("Bearer ", "");
@@ -49,7 +49,7 @@ const authorization = async function (req, res, next) {
       return res.status(403).send({ status: false, message: "You are not authorized" });
     }
   } catch (err) {
-    res.status(401).send({ status: false, message: "Invalid objectId" });
+    return res.status(500).send({ status: false, message:err.message });
   }
 };
 module.exports = { authentication, authorization };

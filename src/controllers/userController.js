@@ -96,7 +96,7 @@ const getUser = async function (req, res) {
         return res.status(200).send({ status: true, message: "user profile details", data: data })
 
     } catch (error) {
-
+        return res.status(500).send({ status: false, message: error.message })
     }
 }
 const updateUser = async function (req, res) {
@@ -110,7 +110,6 @@ const updateUser = async function (req, res) {
         address = JSON.parse(req.body.address);
        }
         const { fname, lname, email, phone, password } = data
-        const { shipping, billing } = address;
         const userId = req.params.userId;
         if (!valid.isValidObjectId(userId)) {
             return res.status(400).send({ status: false, message: "please enter valid user id " })
@@ -138,8 +137,8 @@ const updateUser = async function (req, res) {
         if (files && files.length > 0) {
              imgUrl = await uploadImage(files[0])
         } 
-        const salt='';
-        const pass=''
+        let salt='';
+        let pass=''
         if(password){
          salt = await bcrypt.genSalt();
          pass = await bcrypt.hash(password, salt);
@@ -166,7 +165,6 @@ const updateUser = async function (req, res) {
         if(Object.keys(address).length!=0){
             upt.address=address
         }
-        console.log(upt)
         const user = await userModel.findOneAndUpdate({_id:userId},{$set:upt},{new:true})
         return res.status(200).send({ status: true, message: "successful", data: user })
 
@@ -180,8 +178,6 @@ const updateUser = async function (req, res) {
         else {
             return res.status(500).send({ status: false, message: error.message })
         }
-
     }
-
 }
 module.exports = { createUser, login,getUser,updateUser}
