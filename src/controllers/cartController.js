@@ -124,7 +124,7 @@ const createCart = async function (req, res) {
       updatedAt: cart.updatedAt,
     };
 
-    return res.status(201).send(response);
+    return res.status(201).send({status:true,message:'success',data:response});
   } catch (error) {
     if (error.message.includes("validation")) {
       return res.status(400).send({ status: false, message: error.message });
@@ -257,7 +257,7 @@ const updateCart = async function (req, res) {
       createdAt: cart.createdAt,
       updatedAt: cart.updatedAt,
     };
-    return res.status(200).send(response);
+    return res.status(201).send({status:true,message:'success',data:response});
   } catch (error) {
     if (error.message.includes("validation")) {
       return res.status(400).send({ status: false, message: error.message });
