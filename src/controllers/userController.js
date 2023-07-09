@@ -25,7 +25,7 @@ const createUser = async function (req, res) {
         }
         if (!valid.validPassword(password)) {
             return res.status(400).send({ status: false, message: "please enter password correctly" })
-        }
+        } 
         const check = await userModel.findOne({ email: email })
         if (check) {
             return res.status(400).send({ status: false, message: "this email already exists" })

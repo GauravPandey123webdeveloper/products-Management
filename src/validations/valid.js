@@ -12,7 +12,7 @@ function isValidObjectId(id){
 isValidData = function (a) {
     if (a === null || a === undefined) return false; // Check if the input is null or undefined
     if (typeof a !== 'string' || a.trim().length === 0) return false; // Check if the input is not a string or if it is an empty string after trimming
-    return /^[A-Za-z\s]+$/.test(a) // Check if the input contains only letters or whitespace
+    return true
     
 };
 

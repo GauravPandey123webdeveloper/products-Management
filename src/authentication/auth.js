@@ -41,9 +41,9 @@ const authorization = async function (req, res, next) {
     if (!validation.isValidObjectId(userId)) {
       return res.status(401).send({ status: false, message: "Please enter a valid user ID" });
     }
-    const uid = await userModel.findOne({ _id: userId }).select({ _id: 0, userId: 1 });
-    const decId = req.decodedToken.userId;
-    if (decId == uid.userId) {
+    
+    const decId = req.decodedToken.id;
+    if (decId == userId) {
       next();
     } else {
       return res.status(403).send({ status: false, message: "You are not authorized" });
